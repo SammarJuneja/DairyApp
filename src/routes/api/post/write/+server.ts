@@ -7,7 +7,9 @@ export const POST: RequestHandler = async({ request }) =>  {
         const { body, title, user } = await request.json();
 
         if (!body || !title) {
-            return json({ message: "Title or description was empty" }, { status: 400 });
+            return json({
+                message: "Title or description was empty"
+            }, { status: 400 });
         }
 
         const newPost = new Post({
@@ -33,6 +35,8 @@ export const POST: RequestHandler = async({ request }) =>  {
         
     } catch (error) {
         console.log(error);
-        return json({ message: "Internal server error" }, { status: 500 });
+        return json({
+            message: "Internal server error"
+        }, { status: 500 });
     }
 }

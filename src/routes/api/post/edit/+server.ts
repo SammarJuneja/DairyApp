@@ -1,5 +1,4 @@
-import Post from "$lib/database/modals/post.js"
-import User from "$lib/database/modals/user.js";
+import Post from "$lib/database/modals/post.js";
 import { json, type RequestHandler } from "@sveltejs/kit";
 
 export const POST: RequestHandler = async({ request }) => {
@@ -7,11 +6,15 @@ export const POST: RequestHandler = async({ request }) => {
         const { body, title, postId } = await request.json();
 
         if (!body || !title) {
-            return json({ message: "Title or description was empty" }, { status: 400 });
+            return json({
+                message: "Title or description was empty"
+            }, { status: 400 });
         }
 
         if (!postId) {
-            return json({ message: "Please provide the postId" }, { status: 400 });
+            return json({
+                message: "Please provide the postId"
+            }, { status: 400 });
         }
 
         const post = await Post.findOne({
@@ -19,7 +22,9 @@ export const POST: RequestHandler = async({ request }) => {
         });
 
         if (!post) {
-            return json({ message: "Post was not found" }, { status: 404 });
+            return json({
+                message: "Post was not found"
+            }, { status: 404 });
         }
 
         let TITLE = title || post.title;
@@ -39,6 +44,8 @@ export const POST: RequestHandler = async({ request }) => {
         }, { status: 200 });
     } catch (error) {
         console.log(error);
-        return json({ message: "Internal server error" }, { status: 500 });
+        return json({
+            message: "Internal server error"
+        }, { status: 500 });
     }
 }
