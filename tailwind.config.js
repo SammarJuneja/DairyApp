@@ -1,23 +1,9 @@
-// /** @type {import('tailwindcss').Config} */
-
-// export default {
-//   content: [
-//     "./src/**/*{html, js, svelte, ts}"
-//   ],
-//   theme: {
-//     extent: {},
-//   },
-//   plugins: [],
-// }
-
-import { defineConfig } from "tailwindcss";
-
-export default defineConfig({
+export default {
   content: [
-        "./src/**/*{html, js, svelte, ts}"
-      ],
-      theme: {
-        extent: {},
-      },
-      plugins: [],
-});
+    "./src/**/*.{html,svelte,js,ts}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
