@@ -53,4 +53,3 @@ export async function login(username: string, password: string) {
         return { message: error.message || "An unexpected error occurred." };
     }
 }
-

@@ -1,9 +1,12 @@
 import jwt from "jsonwebtoken";
 import { Config } from "../../../config.js";
+import { connectDB } from "$lib/database/index.js";
 
 const secretKey = Config.JWT_SECRET;
 
 export async function handle({ event, resolve}: { event: any; resolve: any }) {
+    await connectDB();
+
     const excludedPaths = ["/api/user/register", "/api/user/login"];
 
     if (excludedPaths.includes(event.url.pathname)) {

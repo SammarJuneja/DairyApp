@@ -9,7 +9,8 @@
     let usernameInput = (document.getElementById("username") as HTMLInputElement)?.value;
     let passwordInput = (document.getElementById("password") as HTMLInputElement)?.value;
 
-    await userLogin(usernameInput, passwordInput);
+    const x = await userLogin(usernameInput, passwordInput);
+    console.log(x)
   }
 </script>
 

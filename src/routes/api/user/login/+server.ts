@@ -14,6 +14,12 @@ export const POST: RequestHandler = async({ request }) => {
                 message: "Please fill all the details"
             }, { status: 400 });
         }
+
+        if (password.length < 8) {
+            return json({
+                message: "Password should contain 8 letters"
+            }, { status: 400 });
+        }
   
         const user = await User.findOne({
             username: username
