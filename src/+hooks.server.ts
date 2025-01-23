@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { Config } from "../../../config.js";
+import { Config } from "../config.js";
 import { connectDB } from "$lib/database/index.js";
 
 const secretKey = Config.JWT_SECRET;
@@ -20,7 +20,7 @@ export async function handle({ event, resolve}: { event: any; resolve: any }) {
 
         if (token) {
             try {
-                const decoded  = jwt.verify(token, secretKey);
+                const decoded = jwt.verify(token, secretKey);
                 event.locals.userId = decoded;
             } catch (err) {
                 return new Response("Invalid token", { status: 403 });
