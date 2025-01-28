@@ -29,3 +29,16 @@ export async function handle({ event, resolve}: { event: any; resolve: any }) {
     }
     return resolve(event);
 }
+
+// export async function handleError({ error }) {
+//     console.error("An error occurred:", error);
+//     return {
+//         message: "An unexpected error occurred."
+//     };
+// }
+
+// export async function handleSession({ event }) {
+//     return {
+//         userId: event.locals.userId
+//     };
+// }
